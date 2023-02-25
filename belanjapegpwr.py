@@ -75,6 +75,11 @@ ax2.set_yticks(ax2step)
 ax1.set_yticklabels(ax1label)
 ax2.set_yticklabels(ax2label)
 
+# mengatur ukuran ticklabel
+ax1.tick_params(axis='x',labelsize=8)
+ax1.tick_params(axis='y',labelsize=8)
+ax2.tick_params(axis='y',labelsize=8)
+
 # mengatur jarak titik-titik sumbu x beserta label di setiap titik-titiknya
 plt.xticks(xstep, xlabel)
 
