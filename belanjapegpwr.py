@@ -53,25 +53,25 @@ fig, ax1 = plt.subplots()
 ax2 = ax1.twinx()
 
 # membuat bar dan plot
-ax1.bar(x - 0.2, y1,0.4)
-ax1.bar(x + 0.2,y2,0.4)
-ax2.plot(x,y3)
+ax1.bar(x - 0.2, y1,0.4,label='Belanja Daerah')
+ax1.bar(x + 0.2,y2,0.4,label='Belanja Pegawai')
+ax2.plot(x,y3,'.',label='Persentase',linewidth=1,linestyle='-')
 
-# membuat array untuk titik-titik sumbu
+# membuat array untuk mengatur jarak titik-titik sumbu
 xstep = x
 ax1step = np.arange(0,2500000000000,300000000000)
 ax2step = np.arange(30,200,20)
 
-# membuat array untuk label titik-titik sumbu
+# membuat array untuk mengatur label titik-titik sumbu
 xlabel = tahun
 ax1label = list(map(lambda x: '{} T'.format(round(x/1000000000000,2)), ax1step))
 ax2label = list(map(lambda x: '{} %'.format(x), ax2step))
 
-# mengatur jarak titik-titik sumbu axis 1 dan axis 2
+# mengatur jarak titik-titik sumbu axis 1 dan axis 2 menggunakan array yg sudah dibuat
 ax1.set_yticks(ax1step)
 ax2.set_yticks(ax2step)
 
-# mengatur label titik-titik sumbu axis 1 dan axis 2
+# mengatur label titik-titik sumbu axis 1 dan axis 2 menggunakan array yg sudah dibuat
 ax1.set_yticklabels(ax1label)
 ax2.set_yticklabels(ax2label)
 
@@ -80,8 +80,16 @@ ax1.tick_params(axis='x',labelsize=8)
 ax1.tick_params(axis='y',labelsize=8)
 ax2.tick_params(axis='y',labelsize=8)
 
+handles1, labels1 = ax1.get_legend_handles_labels()
+handles2, labels2 = ax2.get_legend_handles_labels()
+handles = handles1 + handles2
+labels = labels1 + labels2
+plt.legend(handles, labels, loc='upper left', fontsize=8)
+
 # mengatur jarak titik-titik sumbu x beserta label di setiap titik-titiknya
 plt.xticks(xstep, xlabel)
+
+plt.title("Perbandingan Belanja Pegawai vs Belanja Daerah \n Kab. Purworejo Tahun 2011-2022")
 
 # menampilkan grafik
 plt.show()
