@@ -5,7 +5,6 @@ import numpy as np
 # membaca file CSV ke dalam DataFrame
 df = pd.read_csv('.\datavisualitation\pwr2011-2023.csv')
 
-
 # mengubah nama kolom
 df.columns = ["tahun", 'akun','anggaran','realisasi', 'persen']
 
