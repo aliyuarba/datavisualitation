@@ -95,14 +95,14 @@ ax2.set_yticklabels(ax2label, fontsize=8)
 # ax1.tick_params(axis='y',labelsize=8)
 # ax2.tick_params(axis='y',labelsize=8)
 
-# # membuat legends
-# handles1, labels1 = ax1.get_legend_handles_labels()
-# handles2, labels2 = ax2.get_legend_handles_labels()
-# handles = handles1 + handles2
-# labels = labels1 + labels2
+# membuat legends
+handles1, labels1 = ax1.get_legend_handles_labels()
+handles2, labels2 = ax2.get_legend_handles_labels()
+handles = handles1 + handles2
+labels = labels1 + labels2
 
-# plt.legend(handles, labels, loc='upper left', fontsize=8)
-plt.title("Perbandingan Belanja Pegawai vs Belanja Daerah \n Kab. Purworejo Tahun 2011-2022")
+plt.legend(handles, labels, loc='upper left', fontsize=8)
+plt.title("Kontribusi PAD thd Pendapatan Daerah \n di Kab/Kota seJateng Tahun 2022")
 plt.subplots_adjust(left=0.1,right=0.9,top=0.9,bottom=0.25)
 
 # # menampilkan grafik
