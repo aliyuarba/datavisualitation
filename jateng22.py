@@ -53,9 +53,9 @@ fig, ax1 = plt.subplots()
 ax2 = ax1.twinx()
 
 # membuat bar dan plot
-ax1.bar(x, y2,label='Pendapatan Daerah')
-ax1.bar(x, y1,label='PAD')
-ax2.plot(x,y3,'.',label='Persentase',linewidth=1,linestyle='-',color='green')
+ax1.bar(x, y2,label='Pendapatan Daerah',color='#7DB9B6')
+ax1.bar(x, y1,label='PAD',color='#E96479')
+ax2.plot(x,y3,'.',label='Persentase',linewidth=1,linestyle='dotted',color='#4D455D')
 
 # membuat anotasi
 for x, y in enumerate(y1):
@@ -72,28 +72,23 @@ for x, y in enumerate(y2):
 
 # membuat array untuk mengatur jarak titik-titik sumbu
 xstep = np.arange(0,len(wil),1)
-# ax1step = np.arange(0,2800000000000,300000000000)
+ax1step = np.arange(0,6000000000000,600000000000)
 ax2step = np.arange(0,100,10)
 
 # membuat array untuk mengatur label titik-titik sumbu
 xlabel = wil
-# ax1label = list(map(lambda x: '{} T'.format(round(x/1000000000000,2)), ax1step))
+ax1label = list(map(lambda x: '{} T'.format(round(x/1000000000000,2)), ax1step))
 ax2label = list(map(lambda x: '{} %'.format(x), ax2step))
 
 # mengatur jarak titik-titik sumbu axis 1 dan axis 2 menggunakan array yg sudah dibuat
 ax1.set_xticks(xstep)
-# ax1.set_yticks(ax1step)
+ax1.set_yticks(ax1step)
 ax2.set_yticks(ax2step)
 
 # mengatur label titik-titik sumbu axis 1 dan axis 2 menggunakan array yg sudah dibuat
 ax1.set_xticklabels(xlabel, rotation=90, fontsize=8)
-# ax1.set_yticklabels(ax1label)
+ax1.set_yticklabels(ax1label, fontsize=8)
 ax2.set_yticklabels(ax2label, fontsize=8)
-
-# # mengatur ukuran ticklabel
-# ax1.tick_params(axis='x',labelsize=8)
-# ax1.tick_params(axis='y',labelsize=8)
-# ax2.tick_params(axis='y',labelsize=8)
 
 # membuat legends
 handles1, labels1 = ax1.get_legend_handles_labels()
